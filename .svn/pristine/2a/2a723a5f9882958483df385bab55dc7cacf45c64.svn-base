@@ -1,0 +1,84 @@
+@import "~css/styles.less";
+
+.c-nav {
+    @me: ~'.c-nav';
+
+    float: left;
+    width: 16%;
+    max-width: 250px;
+    color: @fontWhite;
+    .transition(all, .5s, ease);
+
+    &_logoWrap {
+      line-height: 50px;
+      height: 50px;
+      text-align: center;
+    }
+    &_logo {
+      .i-logo;
+      .transform(scale(.75) translate3d(0,0,0));
+    }
+    &_body {
+      height: calc(@excludeHeaderHig);
+      position: relative;
+      overflow: hidden;
+    }
+    &_wrap {
+        padding: 20px 10px;
+
+        // 小箭头图标垂直居中
+        .f-centerAlign(Y, ~'@{me}_arrow');
+    }
+    &_item {
+        cursor: pointer;
+        .transition(background-color, .2s);
+
+        &:hover {
+            background-color: @navHoverBg;
+        }
+    }
+    &_icon {
+        display:inline-block;
+        width: 30px;
+        line-height: 30px;
+        font-size: 16px;
+        vertical-align: middle;
+        border-radius: 50%;
+        text-align: center;
+        border: 3px solid #fff;
+        font-weight: bold;
+    }
+    &_txt {
+        margin-left: 20px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &_arrow {
+      .i-arrow-left;
+      right: 20px;
+      .transition(transform, .3s, ease);
+    }
+    &_sub {
+        text-align: center;
+        background-color: @navSubBg;
+        padding-top: 10px; padding-bottom: 10px;
+        .transition(background-color, .2s);
+
+        & + & {
+            border-top: 1px dashed @navSubLine;
+        }
+        &:hover {
+          background-color: @navHoverBg;
+        }
+    }
+
+    &_item-active {
+      background-color: @navHoverBg;
+
+      @{me}_arrow {
+        .transform(rotate(90deg));
+        margin-top: -3.5px;
+      }
+    }
+}

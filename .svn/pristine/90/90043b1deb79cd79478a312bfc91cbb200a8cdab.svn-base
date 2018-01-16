@@ -1,0 +1,69 @@
+<div class="c-searchPanel_main">
+  <div class="c-searchPanel_block">
+    <div class="c-searchPanel_tit">名称</div>
+    <label class="c-formWrap c-formWrap-bl">
+        <span class="c-formWrap_name">门店名称：</span>
+        <input class="c-input" type="text" placeholder="Test">
+        <span class="c-formWrap_tips">213</span>
+    </label>
+    <label class="c-formWrap">
+        <span class="c-formWrap_name">分类名称：</span>
+        <input class="c-input" type="text" placeholder="Test">
+    </label>
+  </div>
+  <div class="c-searchPanel_block">
+    <div class="c-searchPanel_tit">分类</div>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片下显示标题</span>
+    </label>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片下显示概述</span>
+    </label>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片悬停放大（IE9以上有效）</span>
+    </label>
+  </div>
+  <div class="c-searchPanel_block">
+    <div class="c-searchPanel_tit">啥东西</div>
+    <label class="c-formWrap">
+        <span class="c-formWrap_name">不造啊：</span>
+        <input class="c-input" type="text" placeholder="Test">
+    </label>
+    <label class="c-formWrap">
+        <span class="c-formWrap_name">鬼东西吧：</span>
+        <input class="c-input" type="text" placeholder="Test">
+    </label>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片悬停放大（IE9以上有效）</span>
+    </label>
+  </div>
+  <div class="c-searchPanel_block">
+    <div class="c-searchPanel_tit">分类</div>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片下显示标题</span>
+    </label>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片下显示概述</span>
+    </label>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片悬停放大（IE9以上有效）</span>
+    </label>
+  </div>
+  <div class="c-searchPanel_block">
+    <div class="c-searchPanel_tit">分类</div>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片下显示标题</span>
+    </label>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片下显示概述</span>
+    </label>
+    <label class="c-crBox">
+      <input class="c-crBox_input" type="checkbox" name="" value=""><span class="c-crBox_txt"> 图片悬停放大（IE9以上有效）</span>
+    </label>
+  </div>
+</div>
+<div class="c-searchPanel_control">
+  <button class="c-button c-button-mini">提交</button>
+  <button class="c-button c-button-mini">复位</button>
+  <button class="c-button c-button-mini" (click)="gTab.close()">关闭</button>
+</div>

@@ -1,0 +1,66 @@
+@import "~css/styles.less";
+
+.c-selectB {
+  @me: ~'.c-selectB';
+  @lineHig: 25px;
+
+  height: @lineHig;
+  .inline-block;
+  z-index: 1;
+
+  .anime() {
+    .transition(all, .3s);
+  }
+  // 列表
+  &_list {
+    height: 100%;
+    overflow: hidden;
+    background-color: @navHoverBg;
+    line-height: @lineHig;
+    .g-tx-white();
+    .anime();
+    border-radius: @radius;
+    cursor: pointer;
+
+    li {
+      padding-left: 10px; padding-right: 19px;
+    }
+    //
+    // li + li {
+    //   border-top: 1px dashed @navHoverBg;
+    // }
+  }
+  // 箭头包裹 剧中用
+  .f-centerAlign(Y; ~'@{me}_arrWrap');
+  &_arrWrap {
+    right: 5px;
+  }
+  // 小箭头
+  &_arr {
+    .creatArrow(bottom; 8px; 12px; #fff; @navHoverBg; @t: 2; @l: 0);
+
+    &, &:after {
+      .anime();
+    }
+  }
+
+  // 选中后
+  &-active {
+    @{me}_list {
+      background-color: @viewBg;
+      .g-tx();
+      border-radius: 0;
+      box-shadow: 0px 0px 6px 0px #999;
+      line-height: 30px;
+    }
+
+    @{me}_arr {
+      .transform(rotate(180deg));
+      border-top-color: @navHoverBg;
+
+      &:after {
+        border-top-color: #fff;
+      }
+    }
+  }
+}

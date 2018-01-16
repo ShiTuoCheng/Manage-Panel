@@ -1,0 +1,102 @@
+@import "~css/styles.less";
+@import "~assets/dropDownLoad_Anima.css";
+
+.c-tabBar {
+    height: @tabBarHig;
+    background-color: #fff;
+    text-align: center;
+    line-height: 40px;
+    .g-tx-sm();
+    display: flex;
+
+    &_mainWrap {
+        flex-grow: 1;
+        text-align: left;
+        overflow: hidden;
+        margin-right: 3px;
+    }
+    &_main {
+        display: flex;
+        text-align: center;
+    }
+    &_tab {
+        width: 107px;
+        flex-grow: 1;
+        border-left-width: 0 !important;
+        cursor: pointer;
+        position: relative;
+        .transition(all, .5s);
+
+        &_con {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: @mainColor;
+            left: 50%;
+            .transform(translateX(-50%));
+        }
+        &:hover&:after {
+          .transition(all, .5s, ease);
+          width: 100%;
+        }
+        &-active&:after {
+            width: 100%;
+        }
+        &-active {
+            color: @fontWhite;
+
+            &:after {
+              .transition(all, .2s, ease);
+              height: 100%;
+            }
+        }
+        &:last-child {
+            border-right-width: 0;
+        }
+    }
+    &_close {
+        @size: 13px;
+
+        .i-close;
+        .i-close-nightmare;
+
+        width: @size;
+        height: @size;
+        vertical-align: text-bottom;
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        .transform(translateY(-50%));
+
+        &-active {
+            .i-close;
+            position: absolute;
+        }
+    }
+    &_item {
+        border-left: 1px solid #e3e3e3;
+        border-right: 1px solid #e3e3e3;
+    }
+    &_last, &_next, &_search {
+        width: 45px;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+    &_last span {
+        .creatArrow(left; 10px; 8px; #666; #666);
+    }
+    &_next span {
+        .creatArrow(right; 10px; 8px; #666; #666);
+    }
+    &_closeAll {
+        width: 107px;
+        cursor: pointer;
+    }
+}

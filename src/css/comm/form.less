@@ -1,0 +1,306 @@
+// 可输入文本的表单组件的公用部分样式
+.g-textEnterForm() {
+    border-radius: @radius;
+    border: 1px solid transparent;
+    padding-left: @textEnterFormPadLr; padding-right: @textEnterFormPadLr;
+}
+.formWrapImportant() {
+  content: '*';
+  margin-right: 5px;
+  color: @mainColor;
+}
+
+.c-snowInput {
+    .blockNext() {
+        & + & {
+            margin-top: 20px;
+        }
+    }
+
+    width: 260px;
+    height: 45px;
+    border: 1px solid #fff;
+    border-radius: @radius;
+    background-color: transparent;
+    color: @fontWhite;
+    padding-left: 20px; padding-right: 20px;
+
+    &-block {
+        .blockNext();
+
+        display: block;
+    }
+
+    &IconWrap {
+        position: relative;
+        .blockNext();
+
+        .c-snowInput {
+            padding-left: 70px;
+        }
+
+        &_icon {
+            position: absolute;
+            top: 50%;
+            left: 30px;
+        }
+    }
+    &::-webkit-input-placeholder {
+        color: #fff;
+    }
+    &:-moz-placeholder {
+        color: #fff;
+    }
+    &::-moz-placeholder {
+        color: #fff;
+    }
+    &:-ms-input-placeholder {
+        color: #fff;
+    }
+}
+
+// 页面-表单
+.p-form {
+
+  @me: ~'.p-form';
+  .c-formWrap(@me); // 继承表单包裹行
+
+
+  display: table-row;
+
+  &_name {
+    display: table-cell;
+    text-align: right;
+    padding-right: 40px;
+    cursor: default;
+  }
+  &_bd {
+    max-width: @inputWidExt;
+  }
+
+  // block 状态
+  &-bl + &-bl {
+    display: table-row;
+    margin-top: 0;
+
+      @{me}_name {
+          padding-top: 20px;
+      }
+  }
+}
+
+// 组件-表单行
+.c-formWrap(@me: ~'.c-formWrap') {
+    .inline-block;
+
+    // 左侧标题
+    &_name {
+      margin-right: 5px;
+    }
+    & .c-textarea {
+      display: block;
+    }
+    &_bd {
+      // .inline-block;
+    }
+    &_row + &_row {
+    }
+    &_tips {
+      margin-left: 5px;
+      .g-tx-sm();
+    }
+    &_dLine {
+      .inline-block;
+      width: 1px;
+      height: 12px;
+      background-color: #666;
+      vertical-align: middle;
+      margin-left: 5px; margin-right: 5px;
+    }
+
+    & + & {
+      margin-left: 30px;
+    }
+    &-bl + &-bl {
+      display: block;
+      margin-top: 10px;
+      margin-left: 0;
+    }
+    // 重要状态 表现为名字前有星号加持
+    &-important {
+      @{me}_name:before {
+        .formWrapImportant();
+      }
+    }
+    // 多行状态 具体表现为左侧标题与右侧内容区顶部对齐(正常默认为居中对齐)
+    &-multiple {
+        @{me}_name {
+            padding-top: 25px !important;
+        }
+        // 右侧内容区盒类名
+        @{me}_bd {
+            vertical-align: top;
+        }
+    }
+    // 其内内容左侧与 c-input 组件内文本左侧对齐
+    &-textSpacAlign {
+        @{me}_bd {
+          padding-left: @textEnterFormPadLr;
+        }
+    }
+    &-bdAdaptive {
+      @{me}_name {
+        float: left;
+      }
+      // 让 Bd 自适应宽度
+      @{me}_bd {
+        display: block;
+        overflow: hidden;
+      }
+    }
+}
+.c-formWrap {
+  .c-formWrap();
+}
+
+// 组件-文本框
+.c-input {
+    .g-textEnterForm();
+    width: 280px;
+    background-color: #fff;
+    vertical-align: middle;
+    height: 35px;
+
+    &-ext {
+        width: @inputWidExt;
+    }
+    &-bl {
+        display: block;
+    }
+    &-tes {
+      width: 30px;
+      text-align: center;
+    }
+    // 60 像素宽度
+    &-60 {
+      @mgrLR: 7px;
+
+      width: 60px !important;
+      text-align: center;
+      padding-left: @mgrLR;
+      padding-right: @mgrLR;
+    }
+    // 迷你文本输入框 多用于 table 列表内
+    &-mini {
+      height: 25px;
+      border: 1px solid #999;
+      padding-left: 5px; padding-right: 5px;
+      text-align: center;
+      width: 50px;
+    }
+}
+
+// 组件-文本域
+.c-textarea {
+    .g-textEnterForm();
+    .g-tx();
+    width: @inputWidExt;
+    height: 85px;
+    vertical-align: top;
+    padding-top: 10px; padding-bottom: 10px;
+}
+
+// 组件-按钮
+.c-button {
+    border-radius: @radius;
+    border: 1px solid transparent;
+    background-color: @mainColor;
+    color: @fontWhite;
+    height: @formComHig;
+    min-width: 100px;
+    cursor: pointer;
+    text-align: center;
+    padding-left: 25px; padding-right: 25px;
+
+    &:hover {
+        background-color: @buttonHover;
+    }
+    &:focus {
+        background-color: @buttonFocus;
+    }
+    // 相邻间距
+    &:not(.c-button-bl) + &:not(.c-button-bl) {
+        margin-left: 25px;
+    }
+    // 块形态
+    &-bl {
+        display: block;
+
+        & + & {
+            margin-top: 20px;
+        }
+        // 块形态完整模式 表现状态为占完整宽度
+        &-full {
+            width: 100%;
+        }
+    }
+    &-dis, &:disabled {
+        &, &:hover, &:focus {
+            background: @buttonDisBg;
+        }
+    }
+    // 上边距
+    &-spacT {
+      margin-top: 20px;
+    }
+    &-mini {
+      padding-left: 10px; padding-right: 10px;
+      height: 25px;
+      min-width: auto;
+      line-height: 25px;
+    }
+
+    // 包裹类
+    &¯cen {
+      text-align: center;
+    }
+}
+
+// 组件-文件域
+.c-fileArea {
+    .inline-block;
+    min-width: @selectWid;
+    padding-left: 25px; padding-right: 25px;
+    line-height: @formComHig;
+    border-radius: @radius;
+    background-color: #ffceb7;
+    text-align: center;
+    color: @fontColor-sm;
+
+    > input {
+        display: none;
+    }
+}
+
+// 组件-控制点
+.c-controlPoint {
+    width: 25px; line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: @mainColor;
+    .inline-block;
+    color: #fff;
+}
+
+// 组件-Radiu Checkbox 包裹
+.c-crBox {
+  @me: ~'.c-crBox';
+
+  .inline-block;
+
+  &¯group {
+    @{me} {
+      margin-right: 10px;
+    }
+  }
+}

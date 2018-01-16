@@ -1,0 +1,73 @@
+.c-table {
+    @inWid: 98%;
+
+    width: 100%;
+    text-align: center;
+    border-collapse:collapse;
+    border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+    overflow: hidden;
+
+    &_crBox {
+      width: 5%;
+    }
+
+    > thead {
+        color: @fontWhite;
+        background-color: @mainColor;
+
+        > tr {
+            width: 100%;
+            height: @tableHeadHig;
+            table-layout: fixed;
+            display: table;
+        }
+    }
+
+    > tbody {
+        height: calc(@tableBodyHig-haveFooter);
+        background-color: #fff;
+        overflow: auto;
+        overflow-x: hidden;
+        display: block;
+        position: relative;
+        .transition(all, .3s, ease);
+
+        .a {
+            position: absolute;
+            top: 0;right: 0;
+            height: 50px;
+            width: 20px;
+            background-color: red;
+            z-index: 999;
+        }
+
+        > tr {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+            .transition(background-color, .3s);
+
+            &:hover {
+              background-color: lighten(@mainColor, 30%);
+            }
+        }
+
+        > tr > td {
+            @spaTB: 8px;
+
+            padding-top: @spaTB; padding-bottom: @spaTB;
+        }
+    }
+
+    &_multiple {
+        .inline-block;
+        text-align: left;
+    }
+
+    &-fullScreen {
+      > tbody {
+        height: calc(@tableBodyHig-full);
+      }
+    }
+}

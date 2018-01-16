@@ -1,0 +1,168 @@
+<div class="c-view">
+  <table class="c-table">
+      <thead>
+          <tr>
+              <th class="c-table_crBox">
+                <input type="checkbox" [checked]="!selectAll(list)" (click)="clickSelectAll(list, selectAllMain.checked)" #selectAllMain>
+              </th>
+              <th style="width: 50%;">名称{{test}}</th>
+              <th>序号</th>
+              <th class="c-table_crBox">停用</th>
+              <th>操作</th>
+          </tr>
+      </thead>
+      <!-- <tbody test [offset]="parentIndex.test"> -->
+      <tbody>
+          <tr *ngFor="let i of list; let t = index">
+
+              <td class="c-table_crBox"><input type="checkbox" [(ngModel)]="i._selectAll_"></td>
+              <td style="width: 50%;">{{ i.Stitle }}</td>
+              <td><input class="c-input c-input-mini" type="text" [(ngModel)]="i.Layer"></td>
+              <td class="c-table_crBox"><input type="checkbox" [(ngModel)]="i.Alive"></td>
+              <td>
+                <button class="c-button c-button-mini">详情{{i.test}}</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+  <div class="tableList_footer">
+    <g-page-num [class]="{
+                          'c-pageNum-right': true,
+                          'c-pageNum-spac': true
+                        }"
+                [process]="pageNumprocess" [(current)]="pageNum" [total]="totalPageNum"
+    >
+  </g-page-num>{{pageNum}}
+
+    <div class="c-button¯cen">
+      <button class="c-button c-button-spacT">添加</button>
+      <button class="c-button c-button-spacT">删除</button>
+      <button class="c-button c-button-spacT">关闭</button>
+      <button class="c-button c-button-spacT" (click)="modify()">修改序号</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="c-card¯group">
+  <div class="c-card">
+    <div class="c-card_img" style="background-image: url(/images/angular.jpg)"></div>
+    <div class="c-card_bd">
+      进行一下测试把
+    </div>
+    <div class="c-card_mask">
+      <button class="c-button c-button-mini">修改</button>
+      <button class="c-button c-button-mini">首页</button>
+      <button class="c-button c-button-mini">栏目</button>
+      <button class="c-button c-button-mini">预览</button>
+      <button class="c-button c-button-mini">下架</button>
+      <button class="c-button c-button-mini">推荐</button>
+      <button class="c-button c-button-mini c-button-bl-full">删除</button>
+    </div>
+  </div>
+  <div class="c-card">
+    <div class="c-card_img" style="background-image: url(/images/angular.jpg)"></div>
+    <div class="c-card_bd">
+      进行一下测试把
+    </div>
+    <div class="c-card_mask">
+      <button class="c-button c-button-mini">修改</button>
+      <button class="c-button c-button-mini">首页</button>
+      <button class="c-button c-button-mini">栏目</button>
+      <button class="c-button c-button-mini">预览</button>
+      <button class="c-button c-button-mini">下架</button>
+      <button class="c-button c-button-mini">推荐</button>
+      <button class="c-button c-button-mini c-button-bl-full">删除</button>
+    </div>
+  </div>
+  <div class="c-card">
+    <div class="c-card_img" style="background-image: url(/images/angular.jpg)"></div>
+    <div class="c-card_bd">
+      进行一下测试把
+    </div>
+    <div class="c-card_mask">
+      <button class="c-button c-button-mini">修改</button>
+      <button class="c-button c-button-mini">首页</button>
+      <button class="c-button c-button-mini">栏目</button>
+      <button class="c-button c-button-mini">预览</button>
+      <button class="c-button c-button-mini">下架</button>
+      <button class="c-button c-button-mini">推荐</button>
+      <button class="c-button c-button-mini c-button-bl-full">删除</button>
+    </div>
+  </div>
+  <div class="c-card">
+    <div class="c-card_img" style="background-image: url(/images/angular.jpg)"></div>
+    <div class="c-card_bd">
+      进行一下测试把
+    </div>
+    <div class="c-card_mask">
+      <button class="c-button c-button-mini">修改</button>
+      <button class="c-button c-button-mini">首页</button>
+      <button class="c-button c-button-mini">栏目</button>
+      <button class="c-button c-button-mini">预览</button>
+      <button class="c-button c-button-mini">下架</button>
+      <button class="c-button c-button-mini">推荐</button>
+      <button class="c-button c-button-mini c-button-bl-full">删除</button>
+    </div>
+  </div>
+  <div class="c-card">
+    <div class="c-card_img" style="background-image: url(/images/angular.jpg)"></div>
+    <div class="c-card_bd">
+      进行一下测试把
+    </div>
+    <div class="c-card_mask">
+      <button class="c-button c-button-mini">修改</button>
+      <button class="c-button c-button-mini">首页</button>
+      <button class="c-button c-button-mini">栏目</button>
+      <button class="c-button c-button-mini">预览</button>
+      <button class="c-button c-button-mini">下架</button>
+      <button class="c-button c-button-mini">推荐</button>
+      <button class="c-button c-button-mini c-button-bl-full">删除</button>
+    </div>
+  </div>
+  <div class="c-card">
+    <div class="c-card_img" style="background-image: url(/images/angular.jpg)"></div>
+    <div class="c-card_bd">
+      进行一下测试把
+    </div>
+    <div class="c-card_mask">
+      <button class="c-button c-button-mini">修改</button>
+      <button class="c-button c-button-mini">首页</button>
+      <button class="c-button c-button-mini">栏目</button>
+      <button class="c-button c-button-mini">预览</button>
+      <button class="c-button c-button-mini">下架</button>
+      <button class="c-button c-button-mini">推荐</button>
+      <button class="c-button c-button-mini c-button-bl-full">删除</button>
+    </div>
+  </div>
+  <div class="c-card">
+    <div class="c-card_img" style="background-image: url(/images/angular.jpg)"></div>
+    <div class="c-card_bd">
+      进行一下测试把
+    </div>
+    <div class="c-card_mask">
+      <button class="c-button c-button-mini">修改</button>
+      <button class="c-button c-button-mini">首页</button>
+      <button class="c-button c-button-mini">栏目</button>
+      <button class="c-button c-button-mini">预览</button>
+      <button class="c-button c-button-mini">下架</button>
+      <button class="c-button c-button-mini">推荐</button>
+      <button class="c-button c-button-mini c-button-bl-full">删除</button>
+    </div>
+  </div>
+  <div class="c-card">
+    <div class="c-card_img" style="background-image: url(/images/angular.jpg)"></div>
+    <div class="c-card_bd">
+      进行一下测试把
+    </div>
+    <div class="c-card_mask">
+      <button class="c-button c-button-mini">修改</button>
+      <button class="c-button c-button-mini">首页</button>
+      <button class="c-button c-button-mini">栏目</button>
+      <button class="c-button c-button-mini">预览</button>
+      <button class="c-button c-button-mini">下架</button>
+      <button class="c-button c-button-mini">推荐</button>
+      <button class="c-button c-button-mini c-button-bl-full">删除</button>
+    </div>
+  </div>
+</div> -->

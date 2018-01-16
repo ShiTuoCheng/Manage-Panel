@@ -1,0 +1,36 @@
+<div class="c-loginLayer login">
+    <div class="c-loginLayer_main">
+        <img class="c-loginLayer_logo" src="/images/logo.png" />
+        <form [formGroup]="loginForm">
+            <div class="c-snowInputIconWrap">
+                <span class="i-user i-user-vCen c-snowInputIconWrap_icon"></span>
+                <input class="c-snowInput c-snowInput-block" 
+                       placeholder="请输入用户名" 
+                       id="name" 
+                       name="username" 
+                       formControlName="name"
+                       [(ngModel)]="user.userName" required>
+
+                <span *ngIf="isFieldValid('name')" class="help-block dd">*请输入用户名</span>
+            </div>
+            <div class="c-snowInputIconWrap">
+                <span class="i-pass i-pass-vCen c-snowInputIconWrap_icon"></span>
+                <input class="c-snowInput c-snowInput-block" 
+                       placeholder="请输入密码" 
+                       type="password"
+                       id="password" 
+                       name="password" 
+                       formControlName="password"
+                       [(ngModel)]="user.userPassword" required>
+
+                <span *ngIf="isFieldValid('password')" class="help-block dd">*请输入密码</span>
+            </div>
+            <button class="c-loginLayer_btn" (click)="loginSubmit()">登&emsp;录</button>
+        </form>
+    </div>
+    <span class="c-loginLayer_vLine"></span>
+
+    <div class="pic_code"></div>    
+</div>
+
+<app-comm-loading></app-comm-loading>

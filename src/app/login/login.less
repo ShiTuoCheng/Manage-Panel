@@ -1,0 +1,110 @@
+@import '~css/styles.less';
+.c-loginLayer {
+    text-align: center;
+    height: 100%;
+    .g-mainBg();
+    .ie7va(~'.c-loginLayer_main', ~'.c-loginLayer_vLine');
+    .f-centerAlign(~'.pic_code');
+    &_logo {
+        .inline-block;
+        margin-bottom: 80px;
+    }
+    &_btn {
+        width: 100%;
+        height: @snowInputHig;
+        background-color: @viewBg;
+        color: @mainColor;
+        border-radius: @radius;
+        font-size: 16px;
+        margin-top: 20px;
+        border: 0;
+    }
+    .help-block {
+        color: @fontWhite;
+        font-size: 12px;
+        position: absolute;
+        right: 0;
+    }
+}
+
+.dd {
+    animation: shake .5s;
+    -o-animation: shake .5s;
+    -webkit-animation: shake .5s;
+    -moz-animation: shake .5s;
+}
+@keyframes shake {
+    0%, 100% {
+        -webkit-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translateX(-5px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translateX(5px);
+    }
+}
+@-o-keyframes shake {
+    /* Opera */
+    0%, 100% {
+        -webkit-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translateX(-5px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translateX(5px);
+    }
+}
+@-webkit-keyframes shake {
+    /* Safari 和 Chrome */
+    0%, 100% {
+        -webkit-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translateX(-5px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translateX(5px);
+    }
+}
+@-moz-keyframes shake {
+    /* Firefox */
+    0%, 100% {
+        -moz-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -moz-transform: translateX(-5px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -moz-transform: translateX(5px);
+    }
+}

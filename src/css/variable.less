@@ -1,0 +1,59 @@
+
+@heartWid: 1200px;
+
+      // 字体
+@fontFamily: "微软雅黑", "Arial";
+@fontSize: 14px;
+@fontColor: #333;
+@fontSize-sm: 12px;
+@fontColor-sm: #999;
+@fontWhite: #fff;
+
+      // 圆角
+@radius: 6px; // 全局圆角值
+
+      // 颜色
+// @mainColor: #ff5700; // 主要色
+// @bg2: #f1991a; // 渐变背景的第二个颜色
+      // 颜色
+@mainColor: #bfb3ff; // 主要色
+@bg2: #ff8989; // 渐变背景的第二个颜色
+
+      // 主框架
+@headerHig: 50px; // 整体框架头部 欢迎、刷新、时间 那部分的高度
+@copyrightHig: 30px; // 视图区域下部 Copyright 的高度
+// 整体框架除去头部以外的高度 为了保持一屏 主要公式: 网页高度 - 头部高度 就是头部下主体区高度
+@excludeHeaderHig: ~'100vh - @{headerHig}';
+
+      // 标签栏
+@tabBarHig: 40px; // 标签栏组件的高度
+
+      // 视图
+// 视图高度 标签栏往下 路由视图切换那个区域 主要公式: 楼上 @excludeHeaderHig 计算后高度 - 标签栏高度 - Copyright 高度
+@viewAreaHig: ~'@{excludeHeaderHig} - @{tabBarHig} - @{copyrightHig}';
+@viewAreaMgrTop: 30px; // 视图区顶边距
+@viewBg: #fef9ed; // 视图区背景色
+
+      // 表格
+@tableHeadHig: 40px; // table 组件 表头高度
+@tableListFooterHig: 97px; // table 列表布局 底部放按钮以及页码区域的高度
+// table 组件全屏状态下表身高度高度 计算公式: 视图高度 - 视图顶边距 - 表头高度
+@tableBodyHig-full:  ~'@{viewAreaHig} - @{viewAreaMgrTop} - @{tableHeadHig}';
+// table 组件 有底部栏状态下的表身高度 计算公式: 视图高度 - 视图顶边距- table 列表布局底部高度
+@tableBodyHig-haveFooter:  ~'@{viewAreaHig} - @{viewAreaMgrTop} - @{tableHeadHig} - @{tableListFooterHig}';
+
+      // 导航
+@navHoverBg: spin(@mainColor, 15); // 导航 Hover 背景
+@navSubBg: darken(@mainColor, 4%); // 子导航背景
+@navSubLine: @navHoverBg; // 子导航分割线颜色
+@navControlHover: @navHoverBg; // 导航控制小块块 Hover 背景
+
+      // 表单
+@formComHig: 35px; // 表单相关组件公用高度
+@inputWidExt: 500px; // 目前最长文本框宽度
+@selectWid: 180px; // 下拉菜单组件宽度
+@textEnterFormPadLr: 20px; // 可输入文本的表单相关组件公用左右两侧内补白 效果见 c-input
+@snowInputHig: 45px; // 登录页的文本框
+@buttonHover: lighten(@mainColor, 10%); // 全局按钮组件 Hover 背景
+@buttonFocus: darken(@mainColor, 10%); // 全局按钮组件 Focus 背景
+@buttonDisBg: #999; // 全局按钮组件 Disable 背景

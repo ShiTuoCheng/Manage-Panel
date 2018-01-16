@@ -1,0 +1,9 @@
+<div class="c-selectB" (click)="selectorClick();" [ngClass]="{'c-selectB-active': selector}">
+  <span class="c-selectB_arrWrap"><span class="c-selectB_arr"></span></span>
+  <ul class="c-selectB_list" [@expand]="selector" (@expand.start)="$event.toState === true && expandAnime($event)">
+    <li *ngFor="let item of optionList | ValuePipe; let i = index" (click)="formListClick(i);">
+      <!-- {{ item }} -->
+      Test
+    </li>
+  </ul>
+</div>

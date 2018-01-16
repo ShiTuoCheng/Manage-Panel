@@ -1,0 +1,59 @@
+<div class="index">
+    <app-nav-component [nav]="fuck"
+                       (mouseenter)="navControl = true"
+                       (mouseleave)="navControl = false"
+                       (ngClass)="{ 'c-nav-mini': navMini }"
+                       [miniMode]="navMini"
+    >
+    </app-nav-component>
+
+    <div class="index_wrap">
+        <header class="c-header">
+        <div class="c-header_infoArea">
+                {{userName}},欢迎您
+                <br>
+            </div>
+            <ul class="c-funArea c-funArea-header">
+                <li class="c-funArea_item" (click)="reloadPage()">
+                    <span class="i-refresh c-funArea_icon"></span>
+                    刷新
+                </li>
+                <li class="c-funArea_item">
+                    <span class="i-clock c-funArea_icon"></span>
+                    <app-comm-timer [showWeek] = 'false' [showSecond] = 'true'></app-comm-timer>
+                </li>
+                <li class="c-funArea_item" (click)="signOut()">
+                    <span class="i-power c-funArea_icon"></span>
+                    退出登录
+                </li>
+            </ul>
+        </header>
+
+        <div class="index_main">
+            <div class="index_navControl"
+                [ngClass]="{ 'index_navControl-active': navControl && !isExtend }"
+                (mouseenter)="navControl = true"
+                (mouseleave)="navControl = false"
+                (click)="navMini = navMini ? false : true"
+            ></div>
+
+            <g-tabs [hooks]="gTabsHooks" #gTabs></g-tabs>
+
+
+            <div class="index_viewArea">
+              <g-search-panel #gSearchPanel [hooks]="gSearchPanelHooks"></g-search-panel>
+
+              <button class="c-button c-button-mini" [routerLink]="['listDemo',{outlets:{search:'listDemoSearch'}}]">Test</button>
+
+              <router-outlet class="if_view" style="opacity: 0;"></router-outlet>
+
+            </div>
+
+            <div class="index_copyright">Copyright © 2016 TOPU.net All rights reserved.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <app-comm-search></app-comm-search> -->
+<app-comm-loading></app-comm-loading>

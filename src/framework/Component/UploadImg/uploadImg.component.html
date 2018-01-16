@@ -1,0 +1,5 @@
+<button (click)="upload()" *ngIf="!uliModel" class="c-button-sm">点我上传</button>
+<div class="c-formRow_fluidWrap" *ngIf="uliModel">
+  <img class="c-formRow_img" [src]="uliModel">
+  <span class="i-close-img" (click)="cancel()"></span>
+</div>

@@ -1,0 +1,34 @@
+// 视图组件
+.l-view(@footerPadTop: 20px, @footerHig: 35px) {
+  @footerHeight: @footerHig + @footerPadTop;
+
+  height: 100%;
+
+  &_body {
+    overflow: auto;
+    max-height: 100%;
+
+    &:after {
+      content: '';
+      display: block;
+      height: @footerHeight;
+    }
+  }
+  &_footer {
+    height: @footerHeight;
+    margin-top: -@footerHeight;
+    padding-top: @footerPadTop;
+    position: relative;
+    background-color: @viewBg;
+    z-index: 2;
+    background-color: transparent;
+  }
+
+  &-cen {
+    text-align: center;
+  }
+}
+
+.c-form {
+  .l-view();
+}

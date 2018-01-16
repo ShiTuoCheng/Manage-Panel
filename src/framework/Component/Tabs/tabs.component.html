@@ -1,0 +1,30 @@
+<div class="c-tabBar">
+    <div class="c-tabBar_last">
+        <span></span>
+    </div>
+    <div class="c-tabBar_mainWrap c-tabBar_item">
+        <ul class="c-tabBar_main">
+                <li class="c-tabBar_tab c-tabBar_item"
+                    *ngFor="let i of list"
+                    [ngClass]="{ 'c-tabBar_tab-active': isCurrent(i) }"
+                    (click)="setCurrent(i); $event.preventDefault()"
+                    [@test]="isCurrent(i)"
+                    (@test.start)="test($event)"
+                >
+                    <div class="c-tabBar_tab_con">
+                        {{ i.title }} <span class="c-tabBar_close"
+                                            [ngClass]="{ 'c-tabBar_close-active': isCurrent(i) }"
+                                            (click)="close(i.href)"
+                                      ></span>
+                    </div>
+                </li>
+        </ul>
+    </div>
+    <div class="c-tabBar_next">
+        <span></span>
+    </div>
+    <div class="c-tabBar_closeAll c-tabBar_item" (click)="create({ title: 'test', href: 'yup' })">关闭全部</div>
+    <div class="c-tabBar_search" (click)="gSearchPanel.isOpen ? gSearchPanel.close() : gSearchPanel.open()">
+        <span class="i-search"></span>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="c-pageNum" [ngClass]="class" [style.opacity]="isRun === 'run' ? 1 : 0">
+  <div class="c-pageNum_begin" *ngIf="class['c-pageNum-startEnd']" (click)="current = 1"></div>
+  <span class="c-pageNum_last" (click)="current = current - 1"></span>
+  <ul class="c-pageNum_main">
+      <li class="c-pageNum_item"
+          *ngFor="let i of main"
+          [ngClass]="{ 'c-pageNum_item-active': current === i }"
+          (click)="current = i"
+      >{{ i }}</li>
+      <li class="c-pageNum_item" (click)="jump()">…</li>
+  </ul>
+  <span class="c-pageNum_next" (click)="current = current + 1"></span>
+  <div class="c-pageNum_end" *ngIf="class['c-pageNum-startEnd']" (click)="current = total"></div>
+</div>

@@ -1,0 +1,52 @@
+@import "~css/styles.less";
+
+// 相邻间距
+.c-pageNum {
+    display: inline-block;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+
+    &_begin {
+      cursor: pointer;
+      .i-gArrow-left-dou;
+    }
+    &_end {
+      cursor: pointer;
+      .i-gArrow-right-dou;
+    }
+    &_last {
+        .i-gArrow-left;
+        cursor: pointer;
+    }
+    &_main {
+        @spacLR: 30px;
+
+        .inline-block;
+        margin-left: @spacLR; margin-right: @spacLR;
+    }
+    &_item {
+        cursor: pointer;
+        .inline-block;
+
+        & + & {
+            margin-left: 20px;
+        }
+        &-active {
+            color: @mainColor;
+        }
+    }
+    &_next {
+        .i-gArrow-right;
+        cursor: pointer;
+    }
+
+    &-right {
+      display: block;
+      text-align: right;
+    }
+    &-spac {
+      margin-top: 20px;
+    }
+}

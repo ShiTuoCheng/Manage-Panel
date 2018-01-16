@@ -1,0 +1,15 @@
+<div class="c-select"(click)="selectorClick();" [ngClass]="{'c-select-active': selector}">
+    <input class="c-input" type="text" [(ngModel)]=selected disabled>
+    <div class="c-select_control">
+        <div class="c-select_arrWrap">
+          <span class="c-select_arr"></span>
+        </div>
+    </div>
+    <div class="c-select_optionWrap"  [@visibility]="visibility" *ngIf=selector>
+        <ul>
+            <li class="c-select_option" *ngFor="let item of optionList | ValuePipe; let i = index" (click)="formListClick(i);" [ngClass]="{'c-select_option-active':isMatched[i]}">
+                <span class="c-select_txt">{{item}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

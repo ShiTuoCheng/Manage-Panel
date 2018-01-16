@@ -1,0 +1,96 @@
+@import "~css/styles.less";
+
+.tableList_footer {
+  height: @tableListFooterHig;
+  overflow: hidden;
+}
+
+.index {
+    min-width: @heartWid;
+
+    .g-mainBg();
+
+    &_wrap {
+      overflow: hidden;
+    }
+    &_main {
+        position: relative;
+        height: calc(@excludeHeaderHig);
+        background-color: @viewBg;
+    }
+    &_viewArea {
+        position: relative;
+        height: calc(@viewAreaHig);
+        padding-top: @viewAreaMgrTop;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    &_copyright {
+        width: 100%;
+        text-align: center;
+        .g-tx-sm();
+        position: absolute;
+        bottom: 0;
+        line-height: @copyrightHig;
+    }
+    &_navControl {
+        width: 30px;
+        height: 50px;
+        background-color: @mainColor;
+        border-radius: 50%;
+        cursor: pointer;
+        outline: none;
+        position: absolute;
+        top: 50%;
+        .transform(translateY(-50%));
+        left: -30px;
+        z-index: 1;
+        .transition(left, .2s, ease);
+
+        &:hover {
+            background-color: @navControlHover;
+        }
+        &-active {
+            left: -22px;
+        }
+    }
+}
+.c-header {
+    height: @headerHig;
+    line-height: @headerHig;
+    color: @fontWhite;
+    position: relative;
+    margin-right: 70px;
+
+    &_infoArea {
+      .inline-block;
+      line-height: normal;
+      left: 0;
+    }
+}
+.c-funArea {
+    &_item {
+        float: left;
+        color: @fontWhite;
+        cursor: pointer;
+
+        & + & {
+            margin-left: 45px;
+        }
+
+        &:hover {
+            text-decoration:  underline;
+        }
+    }
+    &_icon {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    &-header {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        .transform(translateY(-50%));
+    }
+}
