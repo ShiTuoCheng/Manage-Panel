@@ -21,10 +21,10 @@ let prePath: string;
 @Injectable()
 export class CanTets implements CanActivateChild {
   constructor(private rt: Router, private activatedRoute: ActivatedRoute) {
-    this.rt.events.filter(event => event instanceof NavigationEnd).subscribe((d: NavigationEnd) => {
+    // this.rt.events.filter(event => event instanceof NavigationEnd).subscribe((d: NavigationEnd) => {
       // isStop = 0;
-      console.error(d, '嗯 库勒瓦 打某死');
-    });
+      // console.error(d, '嗯 库勒瓦 打某死');
+    // });
   }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

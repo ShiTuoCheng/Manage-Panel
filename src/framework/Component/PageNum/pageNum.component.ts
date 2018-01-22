@@ -53,15 +53,17 @@ export class PageNumComponent implements OnInit, OnChanges {
 
       this.currentChange.emit(this._current);
 
-      if (!this.total)
+      if (!this.total) {
+
         return;
+      }
 
       this.build(); // 构建页码
     });
-  };
+  }
   get current() {
     return this._current;
-  };
+  }
   @Output() currentChange = new EventEmitter();
 
 
@@ -86,14 +88,16 @@ export class PageNumComponent implements OnInit, OnChanges {
 
         this.current = 1; // 默认自动执行并用页码 1 去调用处理程序 请求第一页数据
       });
-    })
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (!changes.hasOwnProperty('total'))
-      return;
+    if (!changes.hasOwnProperty('total')) {
 
-    let curVal = changes.total.currentValue; // 当前值
+      return;
+    }
+
+    const curVal = changes.total.currentValue; // 当前值
 
     // 以下情况退出
     if (!curVal || curVal === changes.total.previousValue) {
@@ -120,11 +124,11 @@ export class PageNumComponent implements OnInit, OnChanges {
   build() {
     this.main = [];
 
-    let displayNum = this.num, // 缓存显示数量
+    const displayNum = this.num; // 缓存显示数量
       // 前 / 后页码预留算法对照值 算法: 预留一些 前 / 后 页码 保证当前页码处所有页码中居中状态
       // 如果显示页码( displayNum : num )为奇数 前 / 后预留相同数量页码 如果为偶数 优先预留 后 页码
-      sild = Math.ceil(displayNum / 2),
-      startNum = (this.current) - sild + 1; // 页码计数开始值
+    const sild = Math.ceil(displayNum / 2);
+    let startNum = (this.current) - sild + 1; // 页码计数开始值
 
     // 如果超出页码预留算法结果超出页码范围 那么控制到正确范围内
     if (startNum < 1) {
@@ -133,7 +137,7 @@ export class PageNumComponent implements OnInit, OnChanges {
       startNum = displayNum % 2 ? this.total - (sild - 1) * 2 : this.total - ((sild) * 2 - 1);
     }
 
-    for (var i = 0; i < displayNum; i++) {
+    for (let i = 0; i < displayNum; i++) {
       this.main.push(startNum + i);
     }
   }

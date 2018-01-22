@@ -11,6 +11,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListSearch implements OnInit {
   ngOnInit() {
-    alert('Start~');
+    // alert('Start~');
   }
 }

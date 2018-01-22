@@ -105,17 +105,19 @@ export class ListDemoComponent implements OnInit {
       delItem.forEach(v => {
         this.list.splice(v, 1);
       });
-    }
+    };
   }
 
   selectAll(tar) {
-    if (!tar)
+    if (!tar) {
+
       return;
+    }
 
     return tar.some(el => !el._selectAll_);
   }
 
   clickSelectAll(tar, val) {
-    tar.forEach(v => v._selectAll_ = val)
+    tar.forEach(v => v._selectAll_ = val);
   }
 }

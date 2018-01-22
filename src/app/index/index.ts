@@ -104,8 +104,7 @@ export class Index implements OnInit, AfterViewInit {
       'navName': '牛逼',
       'sub': [
         {
-          'subName': '子导航栏1',
-          'href': { outlets: { popup: null } }
+          'subName': '子导航栏1'
         },
         { 'subName': '子导航栏2' },
         { 'subName': '子导航栏3' },
@@ -116,123 +115,7 @@ export class Index implements OnInit, AfterViewInit {
         { 'subName': '子导航栏8' },
         { 'subName': '子导航栏9' }
       ]
-    },
-    {
-      'navName': 'Shit',
-      'href': '/index'
-    },
-    {
-      'navName': 'Fuck',
-      'sub': [
-        { 'subName': '子导航栏1' },
-        { 'subName': '子导航栏2' },
-        { 'subName': '子导航栏3' },
-        { 'subName': '子导航栏4' },
-        { 'subName': '子导航栏5' },
-        { 'subName': '子导航栏6' },
-        { 'subName': '子导航栏7' },
-        { 'subName': '子导航栏8' },
-        { 'subName': '子导航栏9' }
-      ]
-    },
-    {
-      'navName': 'Fuck',
-      'sub': [
-        { 'subName': '子导航栏1' },
-        { 'subName': '子导航栏2' },
-        { 'subName': '子导航栏3' },
-        { 'subName': '子导航栏4' },
-        { 'subName': '子导航栏5' },
-        { 'subName': '子导航栏6' },
-        { 'subName': '子导航栏7' },
-        { 'subName': '子导航栏8' },
-        { 'subName': '子导航栏9' }
-      ]
-    },
-    {
-      'navName': 'Fuck',
-      'sub': [
-        { 'subName': '子导航栏1' },
-        { 'subName': '子导航栏2' },
-        { 'subName': '子导航栏3' },
-        { 'subName': '子导航栏4' },
-        { 'subName': '子导航栏5' },
-        { 'subName': '子导航栏6' },
-        { 'subName': '子导航栏7' },
-        { 'subName': '子导航栏8' },
-        { 'subName': '子导航栏9' }
-      ]
-    },
-    {
-      'navName': 'Fuck',
-      'sub': [
-        { 'subName': '子导航栏1' },
-        { 'subName': '子导航栏2' },
-        { 'subName': '子导航栏3' },
-        { 'subName': '子导航栏4' },
-        { 'subName': '子导航栏5' },
-        { 'subName': '子导航栏6' },
-        { 'subName': '子导航栏7' },
-        { 'subName': '子导航栏8' },
-        { 'subName': '子导航栏9' }
-      ]
-    },
-    {
-      'navName': 'Fuck',
-      'sub': [
-        { 'subName': '子导航栏1' },
-        { 'subName': '子导航栏2' },
-        { 'subName': '子导航栏3' },
-        { 'subName': '子导航栏4' },
-        { 'subName': '子导航栏5' },
-        { 'subName': '子导航栏6' },
-        { 'subName': '子导航栏7' },
-        { 'subName': '子导航栏8' },
-        { 'subName': '子导航栏9' }
-      ]
-    },
-    {
-      'navName': 'Fuck',
-      'sub': [
-        { 'subName': '子导航栏1' },
-        { 'subName': '子导航栏2' },
-        { 'subName': '子导航栏3' },
-        { 'subName': '子导航栏4' },
-        { 'subName': '子导航栏5' },
-        { 'subName': '子导航栏6' },
-        { 'subName': '子导航栏7' },
-        { 'subName': '子导航栏8' },
-        { 'subName': '子导航栏9' }
-      ]
-    },
-    {
-      'navName': 'Fuck',
-      'sub': [
-        { 'subName': '子导航栏1' },
-        { 'subName': '子导航栏2' },
-        { 'subName': '子导航栏3' },
-        { 'subName': '子导航栏4' },
-        { 'subName': '子导航栏5' },
-        { 'subName': '子导航栏6' },
-        { 'subName': '子导航栏7' },
-        { 'subName': '子导航栏8' },
-        { 'subName': '子导航栏9' }
-      ]
-    },
-    {
-      'navName': 'Fuck',
-      'sub': [
-        { 'subName': '子导航栏1' },
-        { 'subName': '子导航栏2' },
-        { 'subName': '子导航栏3' },
-        { 'subName': '子导航栏4' },
-        { 'subName': '子导航栏5' },
-        { 'subName': '子导航栏6' },
-        { 'subName': '子导航栏7' },
-        { 'subName': '子导航栏8' },
-        { 'subName': '子导航栏9' }
-      ]
-    },
+    }
   ];
 
   sha() {
@@ -375,7 +258,7 @@ export class Index implements OnInit, AfterViewInit {
   closeSearchPanel() {
     alert('close');
   }
-  isStop: any;
+  // isStop: any;
   matchSearchRoute() {
     this.router.events.filter(event => event instanceof NavigationEnd).subscribe((d: NavigationEnd) => {
       console.warn(d);

@@ -10,7 +10,7 @@ export class Q {
 
     public queue = new Array<Function>();
 
-    constructor(private debug: DebugService) {}
+    constructor(private debug?: DebugService) {}
 
     init() {
 
@@ -27,7 +27,10 @@ export class Q {
                         .catch(err => this.debug.log('task函数出错了', 'error'));
                 }
             })
-            .catch(() => layer.msg('出错咯'));
+            .catch((err) => {
+                layer.msg('出错咯');
+                console.warn('q回调函数出错: ' + err);
+            });
     }
 
     push(obj: any) {

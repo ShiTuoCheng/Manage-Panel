@@ -4,7 +4,7 @@
     </div>
     <div class="c-nav_body">
       <ul class="c-nav_main">
-          <li class="c-nav_item" *ngFor="let m of nav; i as index" (click)="navSlide(m);" [ngClass]="{'c-nav_item-active':activeNav === m && isClick}">
+          <li class="c-nav_item" *ngFor="let m of nav; let i = index" (click)="navSlide(m);" [ngClass]="{'c-nav_item-active':activeNav === m && isClick}">
               <div class="c-nav_wrap">
                   <span class="c-nav_icon">{{m.navName | navigationPipe}}</span>
                   <span class="c-nav_txt">{{ m.navName }}</span>

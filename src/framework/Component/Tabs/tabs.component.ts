@@ -52,7 +52,7 @@ export class TabsComponent implements OnInit {
 
   // 设置为当前标签
   setCurrent(tar: Tabs, savePrevious = true) {
-    let hookRes = this.hooks.switch(tar);
+    const hookRes = this.hooks.switch(tar);
 
     if (hookRes === false) {
       return;
@@ -91,7 +91,7 @@ export class TabsComponent implements OnInit {
       tar = obj;
     }
 
-    var hookRes = this.hooks.create(tar);
+    const hookRes = this.hooks.create(tar);
 
     if (hookRes === false) {
       return;
@@ -108,11 +108,11 @@ export class TabsComponent implements OnInit {
 
   // 关闭标签
   close(tar: string | number | object) {
-    let list: Tabs[] = this.list, // 缓存上
-      identity: string = typeof tar === 'object' ? '' : this.matchID, // 标签身份认证
-      previous: Tabs = this.previous, // 前一个标签
-      currentIndex: number, // 当前标签的下标
-      follow: Tabs; // 后续跟进跳转进的标签
+    const list: Tabs[] = this.list, // 缓存上
+          identity: string = typeof tar === 'object' ? '' : this.matchID, // 标签身份认证
+          previous: Tabs = this.previous; // 前一个标签
+    let currentIndex: number, // 当前标签的下标
+        follow: Tabs; // 后续跟进跳转进的标签
 
     // 匹配
     list.forEach((v, i) => {
@@ -125,7 +125,7 @@ export class TabsComponent implements OnInit {
       }
     });
 
-    let hookRes = this.hooks.close(currentIndex ? list[currentIndex] : list[<number>tar]);
+    const hookRes = this.hooks.close(currentIndex ? list[currentIndex] : list[<number>tar]);
 
     if ((tar === void (0) && !currentIndex) || hookRes === false) {
       return;

@@ -3,8 +3,9 @@
  * 顶部路由刷新和退出登录服务的封装
  */
 import { Injectable, EventEmitter, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { environment } from '../../environments/environment';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { EventQueue } from '@framework/Utils/EventQueue';
 
 @Injectable()
@@ -12,8 +13,14 @@ export class ReloadService {
 
     routerReload = new EventEmitter<any>();
 
-    constructor(private router: Router) {
-        this.routerReload.subscribe((url?: string) => this.router.navigate(['/11111']).then(() => this.router.navigate([url])));
+    constructor(private router: Router, private activatedRoute: ActivatedRoute, private location: Location) {
+        this.routerReload.subscribe((url?: string) => {
+            this.router.routeReuseStrategy.shouldReuseRoute = () => {
+                return false;
+            };
+            this.router.navigated = false;
+            this.router.navigateByUrl(url);
+        });
     }
 }
 

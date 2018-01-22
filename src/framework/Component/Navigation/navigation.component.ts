@@ -133,7 +133,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
       const str = act.href;
       // 事件分发，具体实现逻辑需引入导航栏服务
       // this.navigationService.navigationClick.emit(str);
-      this.router.navigate([str], { replaceUrl: true });
+      this.router.navigate([str], { relativeTo: this.route });
     }
 
     // 事件分发，具体实现逻辑需引入导航栏服务
@@ -145,10 +145,8 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     this.subActiveNav = act;
     if (act.href) {
 
-      console.log(act);
       const str = typeof act.href === 'string' ? [act.href] : act.href;
-
-      this.router.navigate(str, { replaceUrl: true, relativeTo: this.route });
+      this.router.navigate(str, { relativeTo: this.route });
     }
   }
 }

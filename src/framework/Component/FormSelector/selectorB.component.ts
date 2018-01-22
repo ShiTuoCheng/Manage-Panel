@@ -29,16 +29,18 @@ export class SelectorMiniComponent extends FormSelectorComponent implements OnIn
 
   // 实现展开动画 算取列表高度 Angular 动画的 * 太难用了
   expandAnime(ev) {
-    let el = ev.element,
-      item = el.querySelectorAll('li');
+    const el = ev.element,
+          item = el.querySelectorAll('li');
 
     el.style.height = item.length * optionItemHig + 'px';
   }
 
   formListClick(index) {
     // 点中第一项的话 退出
-    if (!index)
+    if (!index) {
+
       return;
+    }
 
     super.formListClick(index); // 调用父方法
 
